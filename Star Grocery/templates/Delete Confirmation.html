@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Delete Confirmation</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='Style.css') }}">
+ </head>
+
+ <body>
+  <header>
+    <div class="home-container">
+      <div class="home-navbar">
+        <header data-role="Header" class="home-header max-width-container">
+          <div class="home-navbar1">
+            <div class="home-container01">
+  
+            </div>
+            <div class="home-middle">
+              <div class="home-left">
+                <a class="navbar-link" href="{{ url_for('AdminDashboard') }}" >HOME</a>
+              </div>
+              <a class="navbar-logo-title" href="{{ url_for('AdminDashboard') }}">STAR GROCERY</a>
+          </div>
+        </div>
+      </div>
+  
+      </div>
+
+   <a class="btn btn-danger" href="{{ url_for('Logout') }}" style=" color: #ffffff; margin-left: 650px; font-size: 13px;">Logout</a>
+   
+  </header>
+  <main>
+    <h1>Confirm Product Deletion</h1>
+    <h4>Are you sure you want to delete the following product?</h4>
+    <h3>Category: {{ product.category }}</h3>
+    <h1>Product Name: {{ product.name }}</h1>
+    <form method="POST" action="{{ url_for('confirmdelete', id=product.id) }}">
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+</body>
+</html>

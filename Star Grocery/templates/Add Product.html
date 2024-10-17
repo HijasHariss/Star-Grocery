@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Add Product</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='Style.css') }}">
+ </head>
+
+ <body>
+  <header>
+    <div class="home-container">
+      <div class="home-navbar">
+        <header data-role="Header" class="home-header max-width-container">
+          <div class="home-navbar1">
+            <div class="home-container01">
+  
+            </div>
+            <div class="home-middle">
+              <div class="home-left">
+                <a class="navbar-link" href="{{ url_for('AdminDashboard') }}" >HOME</a>
+              </div>
+              <a class="navbar-logo-title" href="{{ url_for('AdminDashboard') }}">STAR GROCERY</a>
+          </div>
+        </div>
+      </div>
+  
+      </div>
+
+   <a class="btn btn-danger" href="{{ url_for('Logout') }}" style=" color: #ffffff; margin-left: 650px; font-size: 13px;">Logout</a>
+   
+  </header>
+  <main>
+   <h1>Add Product</h1>
+    <p/>
+    <p/>
+    <p/>
+    <form action="{{ url_for('addproduct') }}" method="POST" enctype="multipart/form-data">
+      <div style="margin-right: 60px;">
+        <label for="name">Product Name:</label>
+        <input type="text" id="name" name="name" required><br>
+      </div>  
+
+        <label for="price">Price :</label>
+        <input type="number" id="price" name="price" step="0.01" required><br>
+        
+        <label for="stock">Stock :</label>
+        <input type="number" id="stock" name="stock" step="0.01" required><br>
+        
+        <label for="offer">Offer :</label>
+        <input type="number" id="offer" name="offer"><br>
+        
+      <div style="margin-right: 25px;">
+        <label for="category">Category  :</label>
+        <select id="category" name="category" required>
+         <option value="" disabled selected>Choose from Category</option>
+         <option value="Fruits & Vegetables">Fruits & Vegetables</option>
+         <option value="Dairy Products">Dairy Products</option>
+         <option value="Grains & Cereals">Grains & Cereals</option>
+         <option value="Snacks">Snacks</option>         
+         <option value="Egg, Meat & Fish">Eggs, Meat & Fish</option>
+         <option value="Beverages">Beverages</option>
+        </select><br>
+      </div>        
+
+        <label for="image">Image:</label>
+        <input type="file" id="image" name="image"><br>
+        
+        <button type="submit" class="btn btn-success">Add Product</button>
+    </form>
+  </main>
+
+  <div class="FlashBox">
+  {% with messages = get_flashed_messages() %}
+     {% if messages %}
+       <div class="FlashMessage">
+           {{ messages[0] }}
+       </div>
+      {% endif %}
+  {% endwith %}
+  </div>
+
+</body>
+</html>

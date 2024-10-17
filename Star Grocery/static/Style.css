@@ -1,0 +1,227 @@
+body {
+    font-family: Trebuchet MS, sans-serif;
+    background-color: #ffffff;
+    margin:0;
+    padding:0;
+}
+header {
+    background-color: #acc5e1ff;
+}
+
+footer {
+    background-color: #e9e3d7;
+    bottom: 0;
+    padding-bottom: 5px;
+    width: 100%;
+    align-items: center;
+
+}
+
+main {
+   text-align: center;
+   color: #364c63;
+}
+img.Logo {
+    margin-left: 80px;
+}
+
+figure {
+    display: inline-block;
+    margin: 10px;
+    border: 0px solid #f4f3ef;
+    transition: 0.5s;
+}
+
+figure:hover {
+    color: #acc5e1ff;
+    transform: scale(1.05);
+}
+
+.LR {
+    height: 100vh;
+    background: linear-gradient(to right, #e9e3d7 50%, #f4f3ef 50%);
+    color: #364c63;
+}
+
+
+
+.FirstHalf{
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+
+.SecondHalf{
+  position: absolute;
+  top: 50%;
+  right: 25%;
+  transform: translate(50%, -50%);
+}
+
+.FlashBox {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    z-index: 9999;
+    list-style: none;
+}
+
+.FlashMessage {
+    text-align: center;
+    padding: 1px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+}
+
+#CategoryDropdown {
+  margin-left: 100px;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border: 1px solid #364c63;
+  width: 300px;
+  border-radius: 2px;
+}
+
+.Navigation {
+   display: flex;
+   gap: 30px;
+   justify-content: flex-end;
+   margin-right: 100px;
+}
+
+.Navigation a {
+    text-decoration: none;
+    color: #000000;
+    background-color: #e66a2c;
+    padding: 1px 10px;
+    border: 1px solid #364c63;
+}
+
+.ProductList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content:center;
+    margin-top: 20px;
+}
+
+.Product {
+    width: calc(20% - 20px);
+    padding: 0px;
+    text-align: center;
+}
+
+.Product img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.home-navbar {
+    top: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    display: flex;
+    z-index: 1000;
+    position: fixed;
+    align-items: center;
+    flex-direction: column;
+    background-color: #acc5e1ff;
+}
+  .home-navbar1 {
+    width: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .home-container {
+    width: 100%;
+    display: flex;   
+    overflow-x: hidden;
+    align-items: center;
+    padding-top: 70px;
+    flex-direction: column;
+  }
+  .home-container01 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .home-middle {
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    align-items: center;
+    flex-shrink: 1;
+    font-family: Trebuchet MS, sans-serif;
+    border-color: transparent;
+    justify-content: center;
+  }
+  .home-left {
+    display: flex;
+    grid-gap: 45px;
+    position: relative;
+    align-items: flex-start;
+  }
+  .home-right {
+    display: flex;
+    grid-gap: 45px;
+    position: relative;
+    align-items: flex-start;
+  }
+  .navbar-link {
+    color: rgba(0, 0, 0, 1);
+    cursor: pointer;
+    height: auto;
+    font-size: 13px;
+    text-align: left;
+    transition: 0.3s;
+    font-family: Trebuchet MS, sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .navbar-link:hover {
+    color: #e9dbdf;
+    transform: scale(1.05);
+  }
+  .navbar-logo-title {
+    color: #000000;
+    cursor: pointer;
+    height: auto;
+    font-size: 24px;
+    transition: 0.3s;
+    font-family: Trebuchet MS, sans-serif;
+    font-weight: 500;
+    line-height: 20px;
+    margin-left: 64px;
+    margin-right: 64px;
+    letter-spacing: 0.4em;
+    text-decoration: none;
+  }
+  .navbar-logo-title:hover {
+    color: #e9dbdf;
+  }
+  @media(max-width: 991px) {
+    .navbar-logo-title {
+      margin-left: 0px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+.home-icons {
+    display: flex;
+  }

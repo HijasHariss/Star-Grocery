@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Snacks</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Style.css') }}">
+</head>
+
+<body>
+  <header>
+    <div class="home-container">
+      <div class="home-navbar">
+        <header data-role="Header" class="home-header max-width-container">
+          <div class="home-navbar1">
+            <div class="home-container01">
+  
+            </div>
+            <div class="home-middle">
+              <div class="home-left">
+                <a class="navbar-link" href="{{ url_for('StarGrocery') }}" >HOME</a>
+  
+                <a class="navbar-link" href="{{ url_for('SpecialOffers') }}">SPECIAL OFFERS</a>
+              </div>
+              <a class="navbar-logo-title" href="{{ url_for('StarGrocery') }}">STAR GROCERY</a>
+              <div class="home-right">
+                <a class="navbar-link" href="{{ url_for('About') }}">ABOUT</a>
+                <a class="navbar-link" href="{{ url_for('Contact') }}">CONTACT</a>
+  
+            <div class="home-icons">
+              <a href="{{ url_for('MyCart') }}"><img
+                alt="iconsbxscart3271299" 
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMjQnIGhlaWdodD0nMjQnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nbm9uZScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz4KPHBhdGggZD0nTTIxLjgyMiA3LjQzMUMyMS42MzUgNy4xNjEgMjEuMzI4IDcgMjEgN0g3LjMzM0w2LjE3OSA0LjIzQzUuODY3IDMuNDgyIDUuMTQzIDMgNC4zMzMgM0gyVjVINC4zMzNMOS4wNzcgMTYuMzg1QzkuMjMyIDE2Ljc1NyA5LjU5NiAxNyAxMCAxN0gxOEMxOC40MTcgMTcgMTguNzkgMTYuNzQxIDE4LjkzNyAxNi4zNTJMMjEuOTM3IDguMzUyQzIyLjA1MiA4LjA0NCAyMi4wMDkgNy43IDIxLjgyMiA3LjQzMVonIGZpbGw9JyMxNjE2MTYnLz4KPHBhdGggZD0nTTEwLjUgMjFDMTEuMzI4NCAyMSAxMiAyMC4zMjg0IDEyIDE5LjVDMTIgMTguNjcxNiAxMS4zMjg0IDE4IDEwLjUgMThDOS42NzE1NyAxOCA5IDE4LjY3MTYgOSAxOS41QzkgMjAuMzI4NCA5LjY3MTU3IDIxIDEwLjUgMjFaJyBmaWxsPScjMTYxNjE2Jy8+CjxwYXRoIGQ9J00xNy41IDIxQzE4LjMyODQgMjEgMTkgMjAuMzI4NCAxOSAxOS41QzE5IDE4LjY3MTYgMTguMzI4NCAxOCAxNy41IDE4QzE2LjY3MTYgMTggMTYgMTguNjcxNiAxNiAxOS41QzE2IDIwLjMyODQgMTYuNjcxNiAyMSAxNy41IDIxWicgZmlsbD0nIzE2MTYxNicvPgo8L3N2Zz4K"
+                class="home-image1"
+              /></a>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      </div>
+      </div>
+   <select id="CategoryDropdown" onchange="redirectToCategory()">
+     <option value="" disabled selected>Choose from Category</option>
+     <option value="{{ url_for('FruitsVegetables') }}">Fruits & Vegetables</option>
+     <option value="{{ url_for('DairyProducts') }}">Dairy Products</option>
+     <option value="{{ url_for('GrainsCereals') }}">Grains & Cereals</option>
+     <option value="{{ url_for('Snacks') }}">Snacks</option>
+     <option value="{{ url_for('EggMeatFish') }}">Eggs, Meat & Fish</option>
+     <option value="{{ url_for('Beverages') }}">Beverages</option>
+   </select>
+   <a class="btn btn-danger" href="{{ url_for('Logout') }}" style=" color: #ffffff; margin-left: 700px; font-size: 13px;">Logout</a>
+   <form action="{{ url_for('Search') }}" style="margin-left: 100px;" method="GET">
+    <input type="text" name="query" placeholder="Search products...">
+    <button type="submit">Search</button>
+   </form>
+   
+  </header>
+
+ <main>
+  <div>
+   <h1>Snacks</h1>
+   <div class="ProductList">
+   {% for product in products %}
+    <div class="Product">
+    <figure>
+     <img src="{{ url_for('static', filename=product.image) }}" alt="{{ product.name }}">
+     <h3>{{ product.name }}</h3>
+     <p>Price: {{ product.price }} Rs</p>
+     {% if product.offer != None %}
+        <p style ="color: red">Offer: {{ product.offer }}%</p>
+        <p style ="color: red">Offer Price: {{ product.price-(product.price*product.offer/100) }}</p>
+     {% endif %}
+     <p>Stock: {{ product.stock }}</p>
+     <a href="{{ url_for('ProductDisplay', id=product.id) }}" class="btn btn-success">Buy</a>
+    </figure>
+     <p/>
+    </div>
+    {% endfor %}
+   </div>
+  </div>
+ </main>
+   <script>
+      function redirectToCategory() {
+         var selectedValue = document.getElementById("CategoryDropdown").value;
+         if (selectedValue !== "") {
+            window.location.href = selectedValue;
+            }
+        }
+   </script>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <footer>
+     <h5>Star Grocery - 2023</h5>
+   </footer>
+</body>
+</html>

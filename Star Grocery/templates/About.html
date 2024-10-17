@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>About</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='Style.css') }}">
+
+ </head>
+
+ <body>
+  <header>
+    <div class="home-container">
+      <div class="home-navbar">
+        <header data-role="Header" class="home-header max-width-container">
+          <div class="home-navbar1">
+            <div class="home-container01">
+
+            </div>
+            <div class="home-middle">
+              <div class="home-left">
+                <a class="navbar-link" href="{{ url_for('StarGrocery') }}" >HOME</a>
+
+                <a class="navbar-link" href="{{ url_for('SpecialOffers') }}">SPECIAL OFFERS</a>
+              </div>
+              <a class="navbar-logo-title" href="{{ url_for('StarGrocery') }}">STAR GROCERY</a>
+              <div class="home-right">
+                <a class="navbar-link">ABOUT</a>
+                <a class="navbar-link" href="{{ url_for('Contact') }}">CONTACT</a>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+      </div>
+    </header>
+  <main>
+    <h1>About Us</h1>
+    <div style="text-align: center; margin: 0 300px;">
+    <p>Welcome to Star Grocery, your one-stop shop for fresh and high-quality grocery items. At Star Grocery, we take pride in providing our customers with a wide range of products that cater to their everyday needs. From fresh fruits and vegetables to dairy products, grains, and snacks, we've got it all!</p>
+    <p>With years of experience in the grocery industry, we have built a reputation for excellence, reliability, and customer satisfaction. Our dedicated team ensures that every product on our shelves meets the highest quality standards, so you can shop with confidence.</p>
+    <p>At Star Grocery, we believe in delivering convenience to your doorstep. Our online store allows you to browse and shop for your favorite items from the comfort of your home. With our user-friendly interface and secure payment options, shopping has never been easier.</p>
+    <p>We are grateful for the trust and loyalty our customers have shown us over the years. As we continue to grow, our commitment to providing exceptional products and service remains unwavering. Thank you for choosing Star Grocery as your preferred grocery store.</p>
+    <p>For inquiries, feedback, or assistance, please don't hesitate to contact our friendly customer support team. We look forward to serving you!</p>
+   </div>
+  </main>
+ </body>
+</html>

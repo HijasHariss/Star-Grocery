@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='Style.css') }}">
+ </head>
+
+ <body>
+  <header>
+    <div class="home-container">
+      <div class="home-navbar">
+        <header data-role="Header" class="home-header max-width-container">
+          <div class="home-navbar1">
+            <div class="home-container01">
+  
+            </div>
+            <div class="home-middle">
+              <a class="navbar-logo-title" href="{{ url_for('AdminDashboard') }}">STAR GROCERY</a>
+          </div>
+        </div>
+      </div>
+  
+      </div>
+
+   <a class="btn btn-danger" href="{{ url_for('Logout') }}" style=" color: #ffffff; margin-left: 650px; font-size: 13px;">Logout</a>
+   
+  </header>
+  <main>
+   <h2>Admin Dashboard</h2>
+   <div>
+        <a href="{{ url_for('addproduct') }}" style="color: #364c63;">
+        <figure>
+            <img src="{{ url_for('static', filename='pictures/Add.png') }}" alt="Add">
+            <figcaption><h4>Add an item</h4></figcaption>
+        </figure>
+        </a>
+        <a href="{{ url_for('editproduct') }}" style="color: #364c63;">
+           <figure>        
+            <img src="{{ url_for('static', filename='pictures/Edit.png') }}" alt="Edit">
+            <figcaption><h4>Edit an item</h4></figcaption>           
+        </figure>
+        </a>
+        <a href="{{ url_for('deleteproduct') }}" style="color: #364c63;">
+        <figure>
+            <img src="{{ url_for('static', filename='pictures/Delete.png') }}" alt="Delete">
+            <figcaption><h4>Delete an item</h4></figcaption>
+           </figure>
+        </a>
+  </main>
+ </body>
+</html>

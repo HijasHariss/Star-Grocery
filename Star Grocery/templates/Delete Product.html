@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Delete Product</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='Style.css') }}">
+ </head>
+
+ <body>
+  <header>
+    <div class="home-container">
+      <div class="home-navbar">
+        <header data-role="Header" class="home-header max-width-container">
+          <div class="home-navbar1">
+            <div class="home-container01">
+  
+            </div>
+            <div class="home-middle">
+              <div class="home-left">
+                <a class="navbar-link" href="{{ url_for('AdminDashboard') }}" >HOME</a>
+              </div>
+              <a class="navbar-logo-title" href="{{ url_for('AdminDashboard') }}">STAR GROCERY</a>
+          </div>
+        </div>
+      </div>
+  
+      </div>
+
+   <a class="btn btn-danger" href="{{ url_for('Logout') }}" style=" color: #ffffff; margin-left: 650px; font-size: 13px;">Logout</a>
+   
+  </header>
+  <main>
+    <h2>Delete Product</h2>
+    <form method="POST">
+        <label for="name">Product Name:</label>
+        <select id="name" name="name">
+            {% for product in products %}
+                <option value="{{ product.name }}">{{ product.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <button type="submit" class="btn btn-danger">Delete Product</button>
+     </form>
+
+  <div class="FlashBox">
+  {% with messages = get_flashed_messages() %}
+     {% if messages %}
+       <div class="FlashMessage">
+           {{ messages[0] }}
+       </div>
+      {% endif %}
+  {% endwith %}
+  </div>
+
+</body>
+</html>

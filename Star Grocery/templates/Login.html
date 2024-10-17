@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='Style.css') }}">
+ </head>
+
+ <body class="LR">
+  <div class="FirstHalf">
+   <img src="{{ url_for('static', filename='pictures/Logo2.PNG') }}" alt="Logo2">
+  </div>
+
+  <div class="SecondHalf">
+  <h1>Login</h1>
+  <form method="POST" action="{{ url_for('Login') }}">
+   <label for="username">Username:</label>
+   <input type="text" id="username" name="username" required><br>
+   <label for="password">Password : </label>
+   <input type="password" id="password" name="password" required><br>
+   <input type="submit" class="btn btn-info" value="Login">
+  </form>
+
+  <p>Don't have an account? <a href="{{ url_for('Register') }}">Register here</a></p>
+
+  </div>
+  <div class="FlashBox">
+  {% with messages = get_flashed_messages() %}
+     {% if messages %}
+       <div class="FlashMessage">
+           {{ messages[0] }}
+       </div>
+      {% endif %}
+  {% endwith %}
+  </div>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ </body>
+</html>

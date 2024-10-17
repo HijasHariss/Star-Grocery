@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Star Grocery</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='Style.css') }}">
+ </head>
+
+ <body>
+  <header>
+    <div class="home-container">
+      <div class="home-navbar">
+        <header data-role="Header" class="home-header max-width-container">
+          <div class="home-navbar1">
+            <div class="home-container01">
+  
+            </div>
+            <div class="home-middle">
+              <div class="home-left">
+                <a class="navbar-link" href="{{ url_for('StarGrocery') }}" >HOME</a>
+  
+                <a class="navbar-link" href="{{ url_for('SpecialOffers') }}">SPECIAL OFFERS</a>
+              </div>
+              <a class="navbar-logo-title" href="{{ url_for('StarGrocery') }}">STAR GROCERY</a>
+              <div class="home-right">
+                <a class="navbar-link" href="{{ url_for('About') }}">ABOUT</a>
+                <a class="navbar-link" href="{{ url_for('Contact') }}">CONTACT</a>
+  
+            <div class="home-icons">
+              <a href="{{ url_for('MyCart') }}"><img
+                alt="iconsbxscart3271299" 
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMjQnIGhlaWdodD0nMjQnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nbm9uZScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz4KPHBhdGggZD0nTTIxLjgyMiA3LjQzMUMyMS42MzUgNy4xNjEgMjEuMzI4IDcgMjEgN0g3LjMzM0w2LjE3OSA0LjIzQzUuODY3IDMuNDgyIDUuMTQzIDMgNC4zMzMgM0gyVjVINC4zMzNMOS4wNzcgMTYuMzg1QzkuMjMyIDE2Ljc1NyA5LjU5NiAxNyAxMCAxN0gxOEMxOC40MTcgMTcgMTguNzkgMTYuNzQxIDE4LjkzNyAxNi4zNTJMMjEuOTM3IDguMzUyQzIyLjA1MiA4LjA0NCAyMi4wMDkgNy43IDIxLjgyMiA3LjQzMVonIGZpbGw9JyMxNjE2MTYnLz4KPHBhdGggZD0nTTEwLjUgMjFDMTEuMzI4NCAyMSAxMiAyMC4zMjg0IDEyIDE5LjVDMTIgMTguNjcxNiAxMS4zMjg0IDE4IDEwLjUgMThDOS42NzE1NyAxOCA5IDE4LjY3MTYgOSAxOS41QzkgMjAuMzI4NCA5LjY3MTU3IDIxIDEwLjUgMjFaJyBmaWxsPScjMTYxNjE2Jy8+CjxwYXRoIGQ9J00xNy41IDIxQzE4LjMyODQgMjEgMTkgMjAuMzI4NCAxOSAxOS41QzE5IDE4LjY3MTYgMTguMzI4NCAxOCAxNy41IDE4QzE2LjY3MTYgMTggMTYgMTguNjcxNiAxNiAxOS41QzE2IDIwLjMyODQgMTYuNjcxNiAyMSAxNy41IDIxWicgZmlsbD0nIzE2MTYxNicvPgo8L3N2Zz4K"
+                class="home-image1"
+              /></a>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      </div>
+      </div>
+   <select id="CategoryDropdown" onchange="redirectToCategory()">
+     <option value="" disabled selected>Choose from Category</option>
+     <option value="{{ url_for('FruitsVegetables') }}">Fruits & Vegetables</option>
+     <option value="{{ url_for('DairyProducts') }}">Dairy Products</option>
+     <option value="{{ url_for('GrainsCereals') }}">Grains & Cereals</option>
+     <option value="{{ url_for('Snacks') }}">Snacks</option>
+     <option value="{{ url_for('EggMeatFish') }}">Eggs, Meat & Fish</option>
+     <option value="{{ url_for('Beverages') }}">Beverages</option>
+   </select>
+   <a class="btn btn-danger" href="{{ url_for('Logout') }}" style=" color: #ffffff; margin-left: 700px; font-size: 13px;">Logout</a>
+   <form action="{{ url_for('Search') }}" style="margin-left: 100px;" method="GET">
+    <input type="text" name="query" placeholder="Search products...">
+    <button type="submit">Search</button>
+   </form>
+   
+  </header>
+  <main>
+   <a href="{{ url_for('SpecialOffers') }}" style="color: #364c63; text-decoration: none; font-weight: none;">
+  <div>
+   <h2>Special Offers</h2>
+   <div class="ProductList">
+   {% for product in spoffer[:5] %}
+    <div class="Product">
+    <figure>
+     <img src="{{ url_for('static', filename=product.image) }}" alt="{{ product.name }}">
+     <h3>{{ product.name }}</h3>
+     <p>Price: {{ product.price }} Rs</p>
+     <p style="color: red">Offer Rate: {{ product.offer }} %</p>
+     <p style="color: red">Offer Price: {{ product.price-(product.price*product.offer/100) }} Rs</p>
+    </figure>
+     <p />
+    </div>
+    {% endfor %}
+   </div>
+  </div>
+   </a>
+   </div>
+
+   <a href="{{ url_for('FruitsVegetables') }}" style="color: #364c63; text-decoration: none; font-weight: none;">
+  <div>
+   <h2>Fruits & Vegetables</h2>
+   <div class="ProductList">
+   {% for product in fruitsveg[:5] %}
+    <div class="Product">
+    <figure>
+     <img src="{{ url_for('static', filename=product.image) }}" alt="{{ product.name }}">
+     <h3>{{ product.name }}</h3>
+     <p>Price: {{ product.price }} Rs</p>
+     {% if product.offer != None %}
+       <p style ="color: red">Offer: {{ product.offer }}%</p>
+       <p style ="color: red">Offer Price: {{ product.price-(product.price*product.offer/100) }}</p>
+    {% endif %}
+    </figure>
+     <p/>
+    </div>
+    {% endfor %}
+   </div>
+  </div>
+   </a>
+   </div>
+
+   <a href="{{ url_for('GrainsCereals') }}" style="color: #364c63; text-decoration: none; font-weight: none;">
+  <div>
+   <h2>Grains & Cereals</h2>
+   <div class="ProductList">
+   {% for product in grains[:5] %}
+    <div class="Product">
+    <figure>
+     <img src="{{ url_for('static', filename=product.image) }}" alt="{{ product.name }}">
+     <h3>{{ product.name }}</h3>
+     <p>Price: {{ product.price }} Rs</p>
+    {% if product.offer != None %}
+       <p style ="color: red">Offer: {{ product.offer }}%</p>
+       <p style ="color: red">Offer Price: {{ product.price-(product.price*product.offer/100) }}</p>
+    {% endif %}     
+    </figure>
+     <p/>
+    </div>
+    {% endfor %}
+   </div>
+  </div>
+   </a>
+   </div>
+
+
+   <a href="{{ url_for('Snacks') }}" style="color: #364c63; text-decoration: none; font-weight: none;">
+  <div>
+   <h2>Snacks</h2>
+   <div class="ProductList">
+   {% for product in snacks[:5] %}
+    <div class="Product">
+    <figure>
+     <img src="{{ url_for('static', filename=product.image) }}" alt="{{ product.name }}">
+     <h3>{{ product.name }}</h3>
+     <p>Price: {{ product.price }} Rs</p>
+     {% if product.offer != None %}
+     <p style ="color: red">Offer: {{ product.offer }}%</p>
+     <p style ="color: red">Offer Price: {{ product.price-(product.price*product.offer/100) }}</p>
+  {% endif %} 
+    </figure>
+     <p/>
+    </div>
+    {% endfor %}
+   </div>
+  </div>
+   </a>
+   </div>
+   <p/>
+<div style="width: 90%; margin: 0 auto; border-top: 2px solid #f3b340;"/>
+   <p/>
+   <h6 style="text-align: center; margin: 0 100px;">At Star Grocery, we take immense pride in offering you the highest quality grocery items. Our dedicated team carefully selects each product, ensuring freshness and excellence with every purchase you make. We believe in providing nothing but the best, from the freshest fruits and vegetables to premium dairy products and pantry essentials. Our commitment to quality is unwavering, and we are honored to be your trusted source for top-notch groceries. Shop with confidence at Star Grocery and experience the difference in every bite.</h6>
+   <p/>
+   <footer>
+     <h5>Star Grocery - 2023</h5>
+   </footer>
+
+  </main>
+
+  <div class="FlashBox">
+  {% with messages = get_flashed_messages() %}
+     {% if messages %}
+       <div class="FlashMessage">
+           {{ messages[0] }}
+       </div>
+      {% endif %}
+  {% endwith %}
+  </div>
+
+   <script>
+      function redirectToCategory() {
+         var selectedValue = document.getElementById("CategoryDropdown").value;
+         if (selectedValue !== "") {
+            window.location.href = selectedValue;
+            }
+        }
+   </script>
+ </body>
+</html>
+
+
+
+
+
+
+
