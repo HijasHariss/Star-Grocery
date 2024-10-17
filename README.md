@@ -3,7 +3,7 @@ Hello,
 
 The 'data' folder contains database file in ".sqlite3" format.
 
-Finally, the python file 'app.py' contains all the flask code. The file is ready to be run and will create a localhost server which serves the web application.
+Finally, the python file 'app.py' contains all the main application flask code with 'models.py' having models and data structure. The file is ready to be run and will create a localhost server which serves the web application.
 
 Login as :-
 
